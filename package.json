@@ -1,0 +1,15 @@
+{
+  "name": "todotxt-object-stream",
+  "version": "1.0.0",
+  "description": "Creates a JavaScript object from todotxt lines",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "author": "Lajos Koszti",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^2.1.0",
+    "moment": "^2.8.4"
+  }
+}
