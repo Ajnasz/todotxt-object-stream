@@ -3,42 +3,39 @@ var TodotxtObjectStream = require('../index');
 
 var s = new TodotxtObjectStream();
 
-function testDue(d, formatted) {
-		assert.equal(typeof d.due, 'object');
-		assert(d.created instanceof Date);
-		assert.equal(typeof d.dueFormatted, 'string');
-		assert.equal(d.dueFormatted, formatted);
+function testDue(d) {
+	'use strict';
+	assert.equal(typeof d.due, 'object');
+	assert(d.created instanceof Date);
 }
-function testTreshold(d, formatted) {
-		assert.equal(typeof d.treshold, 'object');
-		assert(d.created instanceof Date);
-		assert.equal(typeof d.tresholdFormatted, 'string');
-		assert.equal(d.tresholdFormatted, formatted);
+function testTreshold(d) {
+	'use strict';
+	assert.equal(typeof d.treshold, 'object');
+	assert(d.created instanceof Date);
 }
 
 s.on('data', function (d) {
+	'use strict';
 	assert.equal(typeof d, 'object');
 	assert.equal(typeof d.text, 'string');
 
 	if (/Test1/.test(d.text)) {
 		assert.equal(typeof d.created, 'object');
 		assert(d.created instanceof Date);
-		assert.equal(typeof d.createdFormatted, 'string');
-		assert.equal(d.createdFormatted, '2014-04-20');
 	}
 
 
 	if (/Test2/.test(d.text)) {
-		testDue(d, '2014-05-10')
+		testDue(d);
 	}
 
 	if (/Test3/.test(d.text)) {
-		testTreshold(d, '2014-05-15');
+		testTreshold(d);
 	}
 
 	if (/Test4/.test(d.text)) {
-		testTreshold(d, '2014-05-19');
-		testDue(d, '2014-05-21');
+		testTreshold(d);
+		testDue(d);
 	}
 
 	if (/Test5/.test(d.text)) {
@@ -78,6 +75,7 @@ s.on('data', function (d) {
 });
 
 s.on('error', function (err) {
+	'use strict';
 	console.error(err);
 	process.exit();
 });

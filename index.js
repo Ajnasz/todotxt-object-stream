@@ -1,17 +1,13 @@
 var Transform = require('stream').Transform;
 var util = require('util');
 var debug = require('debug')('todotxt-object-stream');
-var moment = require('moment');
 
 function createTodoObject(str) {
 	'use strict';
 	debug('create todo object');
 
 	var output = {},
-		format = 'YYYY-MM-DD',
-		due, dueM,
-		treshold, tresholdM,
-		created, createdM,
+		due, treshold, created,
 		lists, tags, prio;
 
 	created = str.match(/^(?:\([A-Z]\) )?(\d+)-(\d+)-(\d+)/);
@@ -24,9 +20,7 @@ function createTodoObject(str) {
 	output.text = str;
 
 	if (due) {
-		dueM = moment(new Date(due[0]));
-		output.due = dueM.toDate();
-		output.dueFormatted = dueM.format(format);
+		output.due = new Date(due[0]);
 	}
 
 	if (prio) {
@@ -34,15 +28,11 @@ function createTodoObject(str) {
 	}
 
 	if (treshold) {
-		tresholdM = moment(new Date(treshold[0]));
-		output.treshold = tresholdM.toDate();
-		output.tresholdFormatted = tresholdM.format(format);
+		output.treshold = new Date(treshold[0]);
 	}
 
 	if (created) {
-		createdM = moment(new Date(created[0]));
-		output.created = createdM.toDate();
-		output.createdFormatted = createdM.format(format);
+		output.created = new Date(created[0]);
 	}
 
 	if (lists && lists.length) {
