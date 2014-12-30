@@ -1,6 +1,6 @@
 {
   "name": "todotxt-object-stream",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Creates a JavaScript object from todotxt lines",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,18 @@
   "author": "Lajos Koszti",
   "license": "MIT",
   "dependencies": {
-    "debug": "^2.1.0",
-    "moment": "^2.8.4"
-  }
+    "debug": "^2.1.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ajnasz/todotxt-object-stream.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ajnasz/todotxt-object-stream/issues"
+  },
+  "homepage": "https://github.com/Ajnasz/todotxt-object-stream"
 }
