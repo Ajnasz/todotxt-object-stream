@@ -11,7 +11,7 @@ function testDue(d) {
 function testTreshold(d) {
 	'use strict';
 	assert.equal(typeof d.treshold, 'object');
-	assert(d.created instanceof Date);
+	assert(d.treshold instanceof Date);
 }
 
 s.on('data', function (d) {
