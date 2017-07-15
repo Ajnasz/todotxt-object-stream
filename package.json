@@ -1,6 +1,6 @@
 {
   "name": "todotxt-object-stream",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Creates a JavaScript object from todotxt lines",
   "main": "index.js",
   "scripts": {
